@@ -8,6 +8,9 @@ import { Direccion } from './entities/direccion.entity';
 import { Pago } from './entities/pago.entity';
 import { Orden } from './entities/orden.entity';
 import { OrdenProducto } from './entities/orden-producto.entity';
+import { OrdenModule } from './app/orden/orden.module';
+import { OrdenController } from './app/orden/orden.controller';
+import { OrdenService } from './app/orden/orden.service';
 
 @Module({
   imports: [
@@ -22,6 +25,9 @@ import { OrdenProducto } from './entities/orden-producto.entity';
       synchronize: true, // Solo en desarrollo
     }),
     TypeOrmModule.forFeature([Usuario, Producto, Carrito, Favorito, Direccion, Pago, Orden, OrdenProducto]),
+    OrdenModule,
   ],
+  controllers: [OrdenController],
+  providers: [OrdenService],
 })
 export class AppModule {}
