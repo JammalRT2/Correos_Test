@@ -1,3 +1,4 @@
+// apps/backend/src/entities/usuario.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToMany } from 'typeorm';
 import { Carrito } from './carrito.entity';
 import { Favorito } from './favorito.entity';

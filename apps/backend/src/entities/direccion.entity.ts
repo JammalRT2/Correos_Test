@@ -1,4 +1,3 @@
-// apps/backend/src/entities/direccion.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 import { Usuario } from './usuario.entity';
 

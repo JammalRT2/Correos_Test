@@ -12,7 +12,7 @@ export class Pago {
   @Column()
   metodo: string;
 
-  @Column({ type: 'jsonb' })
+  @Column('jsonb')
   detalles: any;
 
   @CreateDateColumn()

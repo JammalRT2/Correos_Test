@@ -18,7 +18,7 @@ export class Orden {
   @ManyToOne(() => Pago)
   pago: Pago;
 
-  @Column({ type: 'decimal', precision: 10, scale: 2 })
+  @Column('decimal', { precision: 10, scale: 2 })
   total: number;
 
   @CreateDateColumn()

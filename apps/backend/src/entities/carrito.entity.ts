@@ -16,6 +16,12 @@ export class Carrito {
   @Column({ default: 1 })
   cantidad: number;
 
+  @Column('decimal', { precision: 10, scale: 2 })
+  precio_unitario: number;
+
+  @Column({ default: true })
+  activo: boolean;
+
   @CreateDateColumn()
   fecha_agregado: Date;
 }
