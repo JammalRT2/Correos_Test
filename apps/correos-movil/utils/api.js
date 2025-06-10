@@ -1,5 +1,6 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: 'http://localhost:3000', // cambia a IP real si usas dispositivo físico
+  baseURL: 'http://192.168.1.9:3000', // ← esta es la IP de tu computadora
 });
+

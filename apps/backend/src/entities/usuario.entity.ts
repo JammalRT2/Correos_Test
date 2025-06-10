@@ -11,16 +11,16 @@ export class Usuario {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ length: 100 })
+  @Column({ type: 'varchar', length: 100, nullable: false })
   nombre: string;
 
-  @Column({ length: 100, unique: true })
+  @Column({ type: 'varchar', length: 100, unique: true, nullable: false })
   correo: string;
 
-  @Column({ length: 20, nullable: true })
+  @Column({ type: 'varchar', length: 20, nullable: true })
   telefono: string;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ nullable: false })
   fecha_registro: Date;
 
   @OneToMany(() => Carrito, c => c.usuario) carrito: Carrito[];

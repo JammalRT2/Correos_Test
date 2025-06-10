@@ -1,3 +1,4 @@
+// apps/backend/src/entities/carrito.entity.ts
 import { Entity, PrimaryGeneratedColumn, ManyToOne, Column, CreateDateColumn } from 'typeorm';
 import { Usuario } from './usuario.entity';
 import { Producto } from './producto.entity';
@@ -13,15 +14,15 @@ export class Carrito {
   @ManyToOne(() => Producto, p => p.carrito, { onDelete: 'CASCADE' })
   producto: Producto;
 
-  @Column({ default: 1 })
+  @Column({ type: 'int', nullable: false })
   cantidad: number;
 
-  @Column('decimal', { precision: 10, scale: 2 })
+  @CreateDateColumn({ nullable: false })
+  fecha_agregado: Date;
+
+  @Column({ type: 'decimal', precision: 10, scale: 2, nullable: false })
   precio_unitario: number;
 
-  @Column({ default: true })
+  @Column({ type: 'boolean', nullable: false })
   activo: boolean;
-
-  @CreateDateColumn()
-  fecha_agregado: Date;
 }

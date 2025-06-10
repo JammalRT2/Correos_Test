@@ -1,3 +1,4 @@
+// apps/backend/src/entities/favorito.entity.ts
 import { Entity, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn } from 'typeorm';
 import { Usuario } from './usuario.entity';
 import { Producto } from './producto.entity';
@@ -13,6 +14,6 @@ export class Favorito {
   @ManyToOne(() => Producto, p => p.favoritos, { onDelete: 'CASCADE' })
   producto: Producto;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ nullable: false })
   fecha_agregado: Date;
 }

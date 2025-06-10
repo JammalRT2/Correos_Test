@@ -1,3 +1,4 @@
+// apps/backend/src/entities/direccion.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 import { Usuario } from './usuario.entity';
 
@@ -9,18 +10,18 @@ export class Direccion {
   @ManyToOne(() => Usuario, u => u.direcciones)
   usuario: Usuario;
 
-  @Column()
+  @Column({ type: 'varchar', nullable: false })
   tipo_envio: string;
 
-  @Column('text')
+  @Column({ type: 'text', nullable: false })
   direccion: string;
 
-  @Column({ length: 10 })
+  @Column({ type: 'varchar', length: 10, nullable: false })
   codigo_postal: string;
 
-  @Column({ length: 100 })
+  @Column({ type: 'varchar', length: 100, nullable: false })
   ciudad: string;
 
-  @Column({ length: 100 })
+  @Column({ type: 'varchar', length: 100, nullable: false })
   estado: string;
 }

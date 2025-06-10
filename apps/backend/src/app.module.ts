@@ -22,7 +22,7 @@ import { OrdenService } from './app/orden/orden.service';
       password: 'admin', // cambia según tu configuración
       database: 'correos_mexico',
       entities: [Usuario, Producto, Carrito, Favorito, Direccion, Pago, Orden, OrdenProducto],
-      synchronize: true, // Solo en desarrollo
+      synchronize: false, // Solo en desarrollo
     }),
     TypeOrmModule.forFeature([Usuario, Producto, Carrito, Favorito, Direccion, Pago, Orden, OrdenProducto]),
     OrdenModule,

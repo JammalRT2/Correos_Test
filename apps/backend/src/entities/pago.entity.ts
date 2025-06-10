@@ -1,3 +1,4 @@
+// apps/backend/src/entities/pago.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn } from 'typeorm';
 import { Usuario } from './usuario.entity';
 
@@ -9,12 +10,12 @@ export class Pago {
   @ManyToOne(() => Usuario, u => u.pagos)
   usuario: Usuario;
 
-  @Column()
+  @Column({ type: 'varchar', nullable: false })
   metodo: string;
 
-  @Column('jsonb')
+  @Column({ type: 'jsonb', nullable: false })
   detalles: any;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ nullable: false })
   fecha_pago: Date;
 }

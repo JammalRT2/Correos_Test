@@ -1,3 +1,4 @@
+// apps/backend/src/entities/producto.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { Carrito } from './carrito.entity';
 import { Favorito } from './favorito.entity';
@@ -8,20 +9,20 @@ export class Producto {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ length: 150 })
+  @Column({ type: 'varchar', nullable: false })
   nombre: string;
 
-  @Column('text')
+  @Column({ type: 'text', nullable: false })
   descripcion: string;
 
-  @Column('decimal', { precision: 10, scale: 2 })
+  @Column({ type: 'decimal', precision: 10, scale: 2, nullable: false })
   precio: number;
 
-  @Column({ length: 100 })
-  categoria: string;
-
-  @Column('text')
+  @Column({ type: 'text', nullable: false })
   imagen_url: string;
+
+  @Column({ type: 'varchar', nullable: false })
+  categoria: string;
 
   @OneToMany(() => Carrito, c => c.producto) carrito: Carrito[];
   @OneToMany(() => Favorito, f => f.producto) favoritos: Favorito[];

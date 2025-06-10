@@ -8,7 +8,7 @@ export default function PantallaPago({ navigation, route }) {
     navigation.navigate('Resumen', {
       envio,
       metodoPago,
-      ordenId: 'aquí-va-el-id-generado-o-hardcodeado', // este lo puedes cambiar si haces un POST real
+      ordenId: 'c1189c23-fcaa-48ce-a363-0ce9267914b9', // este lo puedes cambiar si haces un POST real
     });
   };
 
