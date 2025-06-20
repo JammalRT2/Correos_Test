@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // components/checkout/PantallaEnvio.tsx
 import React, { memo, useCallback, useEffect, useState } from 'react';
 import { 
@@ -335,3 +336,20 @@ const optionStyles = StyleSheet.create({
 });
 
 export default PantallaEnvio;
+=======
+import { View, Button } from 'react-native';
+
+export default function PantallaEnvio({ navigation }) {
+  const envioSeleccionado = (tipo) => {
+    navigation.navigate('Pago', { envio: tipo });
+  };
+
+  return (
+    <View>
+      <Button title="Punto de recogida" onPress={() => envioSeleccionado('recogida')} />
+      <Button title="Domicilio" onPress={() => envioSeleccionado('domicilio')} />
+      <Button title="Express" onPress={() => envioSeleccionado('express')} />
+    </View>
+  );
+}
+>>>>>>> 1ce9123e786b5a5ac2fe48e15e625a1ab1974b07
