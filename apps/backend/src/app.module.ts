@@ -2,8 +2,6 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Usuario } from './entities/usuario.entity';
 import { Producto } from './entities/producto.entity';
-import { Carrito } from './entities/carrito.entity';
-import { Favorito } from './entities/favorito.entity';
 import { Direccion } from './entities/direccion.entity';
 import { Pago } from './entities/pago.entity';
 import { Orden } from './entities/orden.entity';
@@ -11,6 +9,10 @@ import { OrdenProducto } from './entities/orden-producto.entity';
 import { OrdenModule } from './app/orden/orden.module';
 import { OrdenController } from './app/orden/orden.controller';
 import { OrdenService } from './app/orden/orden.service';
+import { CarritoModule } from './app/carrito/carrito.module';
+import { Carrito } from './app/carrito/entities/carrito.entity';
+import { FavoritosModule } from './app/favoritos/favoritos.module';
+import { Favorito } from './app/favoritos/entities/favorito.entity';
 
 @Module({
   imports: [
@@ -26,6 +28,9 @@ import { OrdenService } from './app/orden/orden.service';
     }),
     TypeOrmModule.forFeature([Usuario, Producto, Carrito, Favorito, Direccion, Pago, Orden, OrdenProducto]),
     OrdenModule,
+    CarritoModule,
+    FavoritosModule,
+
   ],
   controllers: [OrdenController],
   providers: [OrdenService],

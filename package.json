@@ -27,14 +27,13 @@
     "@nestjs/platform-express": "^11.1.2",
     "@nestjs/testing": "^11.1.2",
     "@nestjs/typeorm": "^11.0.0",
-    "@react-navigation/native": "^7.1.10",
-    "@react-navigation/native-stack": "^7.3.14",
+    "@react-navigation/native": "^7.1.13",
+    "@react-navigation/native-stack": "^7.3.18",
     "@react-navigation/stack": "^7.3.3",
     "axios": "^1.9.0",
     "pg": "^8.16.0",
     "react": "19.0.0",
     "react-native": "0.79.3",
-<<<<<<< HEAD
     "react-native-gesture-handler": "~2.24.0",
     "react-native-reanimated": "~3.17.4",
     "react-native-reanimated-carousel": "^4.0.2",
@@ -44,17 +43,6 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
     "typeorm": "^0.3.24"
-=======
-    "react-native-reanimated": "~3.17.4",
-    "react-native-reanimated-carousel": "^4.0.2",
-    "react-native-size-matters": "^0.4.2",
-    "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.8.1",
-    "typeorm": "^0.3.24",
-    "react-native-screens": "~4.11.1",
-    "react-native-safe-area-context": "5.4.0",
-    "react-native-gesture-handler": "~2.24.0"
->>>>>>> 1ce9123e786b5a5ac2fe48e15e625a1ab1974b07
   },
   "overrides": {
     "multer": "^2.0.0"

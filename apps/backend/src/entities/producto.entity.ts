@@ -1,7 +1,7 @@
 // apps/backend/src/entities/producto.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { Carrito } from './carrito.entity';
-import { Favorito } from './favorito.entity';
+import { Carrito } from '../app/carrito/entities/carrito.entity';
+import { Favorito } from '../app/favoritos/entities/favorito.entity';
 import { OrdenProducto } from './orden-producto.entity';
 
 @Entity('productos')
