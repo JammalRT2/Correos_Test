@@ -6,10 +6,11 @@ import {
   TouchableOpacity, 
   ScrollView, 
   StyleSheet, 
-  SafeAreaView 
+  SafeAreaView,
+  Alert
 } from 'react-native';
 import axios from 'axios';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 type ProductoCarrito = {
   id: string;
@@ -28,7 +29,7 @@ const PantallaCarrito = () => {
   useEffect(() => {
     const fetchCarrito = async () => {
       try {
-        const res = await axios.get(`http://192.168.1.7:3000/carrito/72627e56-2f1a-41bb-89d6-72e1e37a82f2`);
+        const res = await axios.get(`http://192.168.0.116:3000/carrito/72627e56-2f1a-41bb-89d6-72e1e37a82f2`);
         setItems(res.data);
       } catch (error) {
         console.error('Error al cargar carrito', error);
@@ -40,7 +41,7 @@ const PantallaCarrito = () => {
 
   const eliminarItem = async (id: string) => {
     try {
-      await axios.delete(`http://192.168.1.7:3000/carrito/${id}`);
+      await axios.delete(`http://192.168.0.116:3000/carrito/${id}`);
       setItems(items.filter(item => item.id !== id));
     } catch (error) {
       console.error('Error al eliminar', error);
@@ -55,7 +56,7 @@ const PantallaCarrito = () => {
         {items.map((item) => (
           <View key={item.id} style={styles.card}>
             <Image 
-              source={{ uri: `https://via.placeholder.com/100x100/DE1484/FFFFFF?text=${item.producto.nombre.charAt(0)}` }}
+              source={{ uri: `http://192.168.0.116:3000/imagenes/${item.producto.imagen_url}` }}
               style={styles.imagen}
             />
 
@@ -67,7 +68,7 @@ const PantallaCarrito = () => {
             </View>
 
             <TouchableOpacity onPress={() => eliminarItem(item.id)} style={styles.botonEliminar}>
-              <Icon name="trash-outline" size={20} color="#fff" />
+              <Icon name="delete" size={20} color="#fff" />
             </TouchableOpacity>
           </View>
         ))}

@@ -52,7 +52,8 @@ interface DetalleOrden {
 
 type CheckoutStackParamList = {
   Envio: undefined;
-  Pago: undefined;
+  Pago: undefined
+  Favoritos: undefined; // Si tienes una pantalla de Favoritos, agrégala aquí
   Resumen: undefined;
 } & ParamListBase;
 
@@ -107,7 +108,7 @@ const PantallaResumen: React.FC = () => {
       try {
         setIsLoading(true);
         const response = await axios.get<DetalleOrden>(
-          'http://192.168.1.7:3000/orden/c1189c23-fcaa-48ce-a363-0ce9267914b9'
+          'http://192.168.0.116:3000/orden/c1189c23-fcaa-48ce-a363-0ce9267914b9'
         );
         setDetalle(response.data);
         setError(null);
@@ -148,6 +149,7 @@ const PantallaResumen: React.FC = () => {
         <View style={styles.headerRightIcons}>
           <TouchableOpacity 
             style={styles.iconButton}
+            onPress={() => navigation.navigate('Favoritos')}
             accessibilityLabel="Favoritos"
             accessibilityHint="Ver tus artículos favoritos">
             <Ionicons name="heart-outline" size={24} color={Colors.dark} />

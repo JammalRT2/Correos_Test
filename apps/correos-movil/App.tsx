@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack'; // ✅ Corrección aquí
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import PantallaEnvio from './screens/detalles_pedido/PantallaEnvio';
+import PantallaFavoritos from './screens/favoritos/Pantalla_favoritos'; // ← Renombrado aquí
 import PantallaPago from './screens/detalles_pedido/PantallaPago';
 import PantallaResumen from './screens/detalles_pedido/PantallaResumen';
 import CarritoScreen from './screens/carrito/Pantalla_carrito';
@@ -12,15 +13,16 @@ export type CheckoutStackParamList = {
   Envio: undefined;
   Pago: undefined;
   Resumen: undefined;
-  Carrito: undefined; // ✅ Asegúrate de que Carrito esté definido aquí también
+  Carrito: undefined;
+  Favoritos: undefined;
 };
 
-const Stack = createNativeStackNavigator<CheckoutStackParamList>(); // ✅ Cambio aquí
+const Stack = createNativeStackNavigator<CheckoutStackParamList>();
 
 const App: React.FC = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator 
+      <Stack.Navigator
         initialRouteName="Envio"
         screenOptions={{
           headerShown: false,
@@ -31,6 +33,11 @@ const App: React.FC = () => {
           name="Envio" 
           component={PantallaEnvio}
           options={{ title: 'Envío' }}
+        />
+        <Stack.Screen
+          name="Favoritos"
+          component={PantallaFavoritos} // ← Renombrado aquí
+          options={{ title: 'Favoritos' }}
         />
         <Stack.Screen 
           name="Pago" 

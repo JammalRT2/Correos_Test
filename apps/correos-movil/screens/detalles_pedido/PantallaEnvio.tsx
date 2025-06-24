@@ -38,6 +38,7 @@ type CheckoutStackParamList = {
   Envio: undefined;
   Pago: undefined;
   Resumen: undefined;
+  Favoritos: undefined; // Si tienes una pantalla de Favoritos, agrégala aquí
 } & ParamListBase;
 
 type NavigationProp = StackNavigationProp<CheckoutStackParamList>;
@@ -134,6 +135,7 @@ const PantallaEnvio = memo(() => {
         <View style={styles.headerRightIcons}>
           <TouchableOpacity 
             style={styles.iconButton}
+            onPress={() => navigation.navigate('Favoritos')}
             accessibilityLabel="Favoritos"
             accessibilityHint="Ver tus artículos favoritos">
             <Ionicons name="heart-outline" size={24} color={Colors.dark} />

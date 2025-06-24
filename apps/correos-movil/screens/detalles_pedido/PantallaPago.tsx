@@ -72,6 +72,7 @@ type CheckoutStackParamList = {
   Envio: undefined;
   Pago: undefined;
   Resumen: undefined;
+  Favoritos: undefined; // Si tienes una pantalla de Favoritos, agrégala aquí
 };
 
 type NavigationProp = StackNavigationProp<CheckoutStackParamList>;
@@ -127,7 +128,10 @@ export default function PantallaPago() {
           <TouchableOpacity style={styles.iconButton}>
             <Ionicons name="heart-outline" size={24} color={Colors.dark} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.bagButton}>
+          <TouchableOpacity 
+            style={styles.bagButton}
+            onPress={() => navigation.navigate('Carrito')}
+          >
             <Ionicons name="bag-outline" size={24} color={Colors.white} />
           </TouchableOpacity>
         </View>
